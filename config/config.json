@@ -1,8 +1,13 @@
 {
   "development": {
     "username": "postgres",
+<<<<<<< HEAD
     "password": "18andrew",
     "database": "pair_project_db",
+=======
+    "password": "postgres",
+    "database": "PairProject",
+>>>>>>> f450935b4d266164a0b338a937613dfb68d50a7f
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
