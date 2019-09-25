@@ -9,9 +9,27 @@ module.exports = (sequelize, DataTypes) => {
   }
 
   User.init({
-    name: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate:{
+        notEmpty: true
+      }
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate:{
+        notEmpty: true
+      }
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate:{
+        notEmpty: true
+      }
+    }
   }, {sequelize, modelName: 'User', hooks:{
       beforeCreate: (instance, options)=>{
         const random = String(Math.random() * 10000)

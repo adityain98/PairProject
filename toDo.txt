@@ -6,7 +6,7 @@ Langkah awal:
     2. masukkan data kedalam database               | V
 
 Webpage:
-    1. masukkan homepage ke ejs                     |
+    1. masukkan homepage ke ejs                     | V
     2. membuat login page                           |
     3. membuat register page                        | 
     4. checkout page                                |
@@ -14,8 +14,9 @@ Webpage:
 
 Sequelize:
     1. buat relasi antar tabel                      | V
-    2. bisa menambahkan user pada Sequelize         | V
+    2. bisa menambahkan user pada Sequelize         | V sudah dengan validate
     3. login pada web & logout                      | setelah lecture 
-    4. fitur add book to cart                       | 
-    5. fitur checkout                               |
-    6. fitur view by category                       |
+    4. fitur add book to cart                       | V
+    5. fitur checkout                               | 
+    6. fitur view by category                       | 
+    7. fitur view cart                              | V

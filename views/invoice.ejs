@@ -29,7 +29,7 @@
 
         .full-invoice {
             background-color: #EFF0F1;
-            height: 500px;
+            height: auto;
             width: 450px;
             border-radius: 10px;
             box-shadow: 
@@ -128,6 +128,32 @@
             background-color: #fff4e6;
         }
 
+        /* Plus Sign */
+        #plus-sign-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        #plus-sign-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #a7f4f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 300ms;
+        }
+
+        #plus-sign-circle:hover {
+            background-color: #62d6eb;
+        }
+
+        .plus-sign {
+            color: white;
+            font-size: 30px;
+        }
+
         /* Small screen */
         @media only screen and (max-width: 450px) {
             .full-invoice {
@@ -186,18 +212,23 @@
                                 <p class="light-text">Tue, 30 May</p>
                             </div>
                             <p class="price"><span class="light-text">$</span>40<p>
-                    </div>
-                    <div class="invoice-item">
-                            <div class="icon-circle circle-soundcloud">
-                                <i class="fab fa-mixcloud icon-soundcloud" aria-hidden="true"></i>
-                            </div>
-                            <div class="invoice-biz-date">
-                                <p>Soundcloud</p>
-                                <p class="light-text">Tue, 30 May</p>
-                            </div>
-                            <p class="price"><span class="light-text">$</span>40<p>
                         </div>
+                        <div class="invoice-item">
+                        <div class="icon-circle circle-soundcloud">
+                            <i class="fab fa-mixcloud icon-soundcloud" aria-hidden="true"></i>
+                        </div>
+                        <div class="invoice-biz-date">
+                            <p>Soundcloud</p>
+                            <p class="light-text">Tue, 30 May</p>
+                        </div>
+                        <p class="price"><span class="light-text">$</span>40<p>
+                    </div>
                 </section>
+                <div id="plus-sign-container">
+                    <div id="plus-sign-circle">
+                        <i class="fa fa-plus plus-sign" aria-hidden="true"></i>
+                    </div>
+                </div>
             </main>
 </body>
 </html>
