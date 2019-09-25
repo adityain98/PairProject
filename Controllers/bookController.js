@@ -11,7 +11,7 @@ class BookController{
         })
             .then(data=>{
                 return UserBook.create({
-                    // UserId: data.id
+                    // UserId: data.id,
                     // BookId: req.params.id    
                 })
             })
@@ -28,7 +28,6 @@ class BookController{
         User.findOne({
             where:{
                 // login:true
-                id:1
             }
         })
             .then(data=>{
