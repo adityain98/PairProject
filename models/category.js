@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const Model = sequelize.Sequelize.Model
 
-  class Categoty extends Model{
+  class Category extends Model{
 
   }
 
@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {sequelize, modelName: 'Category'})
 
   Category.associate = function(models) {
-    // associations can be defined here
+    // User.belongsToMany(Project, { through: UserProject });
+    Category.belongsToMany(models.Book, {through: models.BookCategory})
   };
   return Category;
 };
