@@ -10,5 +10,7 @@ routes.use(express.urlencoded({ extended: true })) // for parsing application/x-
 
 routes.get('/', UserController.registerUser)
 
+routes.post('/', UserController.postRegisterUser)
+
 
 module.exports = routes

@@ -8,7 +8,9 @@ routes.use(express.json()) // for parsing application/json
 routes.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 
-routes.get('/:id/addBook', BookController)
+routes.get('/:id/addBook', BookController.addBook)
+
+routes.get('/cart', BookController.cart)
 
 
 module.exports = routes
