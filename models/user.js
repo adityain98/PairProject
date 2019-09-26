@@ -1,5 +1,6 @@
 'use strict';
-const hashPassword = require('../Helpers/hashPassword')
+
+const bcrypt = require('bcrypt')
 
 module.exports = (sequelize, DataTypes) => {
   const Model = sequelize.Sequelize.Model
@@ -31,7 +32,13 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true
       }
     }
-  }, {sequelize, modelName: 'User' })
+  }, {sequelize, modelName: 'User', hooks:{
+    beforeCreate: (instance, options)=>{
+      const saltRounds = 10;
+      const hash = bcrypt.hashSync(instance.password, saltRounds);
+      instance.setDataValue('password', hash)
+    }
+  } })
 
   User.associate = function(models) {
     // User.belongsToMany(Project, { through: UserProject });

@@ -8,24 +8,22 @@ class UserController{
 
     static postRegisterUser(req, res){
         // create user
-        const saltRounds = 10;
-        const hash = bcrypt.hashSync(req.body.password, saltRounds);
         User.create({
             name: req.body.name,
             email: req.body.email,
-            password: hash
+            password: req.body.password
         })
             .then(()=>{
                 res.redirect('/')
             })
             .catch(err=>{
-                res.send(err)
+                res.send(err.message)
             })
     }
 
     static login(req, res) {
         // res.send('halo')
-        res.render('login_form')
+        res.render('login_form', {login: req.session.user})
     }
 
     static postLogin(req, res) {
