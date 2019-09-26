@@ -13,7 +13,8 @@ module.exports = (sequelize, DataTypes) => {
   Book.init({
     name: DataTypes.STRING,
     stock: DataTypes.INTEGER,
-    gambar: DataTypes.STRING
+    gambar: DataTypes.STRING,
+    description: DataTypes.STRING
   }, {sequelize, modelName: "Book"})
   
   Book.associate = function(models) {
