@@ -4,6 +4,7 @@
     "password": "postgres",
     "database": "PairProject",
     "host": "127.0.0.1",
+    "use_env_variable": "DATABASE_URL",
     "dialect": "postgres"
   },
   "test": {
@@ -18,6 +19,7 @@
     "password": "2c63d25dacf07ff1905ca248454bbe51d9a934afd988e47e6ec58fd9d3e8c0f3",
     "database": "deb29jtfu60e20",
     "host": "ec2-54-83-202-132.compute-1.amazonaws.com",
+    "use_env_variable": "DATABASE_URL",
     "dialect": "postgres"
   }
 }
