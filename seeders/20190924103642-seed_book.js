@@ -3,13 +3,15 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Books',[{
-      name: "The Outside",
-      stock: 10,
-      gambar: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1544647268l/40947778._SY475_.jpg",
-      createdAt: new Date(),
-      updatedAt: new Date()
+        // id: 1,
+        name: "The Outside",
+        stock: 10,
+        gambar: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1544647268l/40947778._SY475_.jpg",
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
+        // id: 2,
         name: "Here There Are Monsters",
         stock: 14,
         gambar: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1543858837l/36445966._SY475_.jpg",
@@ -17,6 +19,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        // id: 3,
         name: "House of Salt and Sorrows",
         stock: 17,
         gambar: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1544071699l/39679076.jpg",
@@ -24,6 +27,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        // id: 4,
         name: "The Dragon Republic",
         stock: 11,
         gambar: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1539963703l/41118857._SY475_.jpg",
@@ -31,13 +35,15 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        // id: 5,
         name: "A Better Man",
         stock: 18,
-        gambae: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1426872513l/23507698.jpg",
+        gambar: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1426872513l/23507698.jpg",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
+        // id: 6,
         name: "The Swallows",
         stock: 13,
         gambar: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1553520339l/43744294.jpg",
@@ -45,6 +51,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        // id: 7,
         name: "The Turn of the Key",
         stock: 19,
         gambar: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1548169391l/40489648._SY475_.jpg",

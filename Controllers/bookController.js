@@ -48,14 +48,12 @@ class BookController{
 
     // menampilkan buku yang ada di cart
     static cart(req, res){
-        let name = ''
         User.findOne({
             where:{
-                // login:true
+                id: req.session.user.id
             }
         })
             .then(data=>{
-                name = data.name
                 return UserBook.findAll({
                     where:{
                         UserId: data.id
