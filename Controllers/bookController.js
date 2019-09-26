@@ -1,6 +1,9 @@
 const Book = require('../models').Book
 const UserBook = require('../models').UserBook
 const User = require('../models').User
+const nodemailer = require('nodemailer');
+const sendMail = require('../Helpers/nodeMailer')
+
 
 class BookController{
     // tampilkan ke homepage
@@ -8,7 +11,7 @@ class BookController{
         if(!req.query.id){
             Book.findAll()
                 .then(books=>{
-                    res.render('home', {books})
+                    res.render('home', {books, login: req.session.user})
                 })
         }
         // view book by category
@@ -20,7 +23,7 @@ class BookController{
                 include: Book
             })
                 .then(books=>{
-                    res.render('home', {books})
+                    res.render('home', {books, login: req.session.user})
                 })
         }
     }
@@ -62,7 +65,7 @@ class BookController{
             })
             .then(userBooks=>{
                 // res.send(userBooks)
-                res.render('invoice', {userBooks})
+                res.render('invoice', {userBooks, login: req.session.user})
             })
             // test
             .catch(err=>{
@@ -82,8 +85,9 @@ class BookController{
                 })
             })
             .then(userBooks=>{
+                sendMail(userBooks.email)
                 // res.send(userBooks)
-                res.render('checkout_page', {userBooks})
+                res.render('checkout_page', {userBooks, login: req.session.user})
             })
             // test
             .catch(err=>{
@@ -100,6 +104,23 @@ class BookController{
         })
             .then(()=>{
                 res.redirect('/book/cart')
+            })
+            .catch(err=>{
+                res.send(err)
+            })
+    }
+
+    static deleteList(req, res){
+        UserBook.destroy({
+            where:{
+                UserId: req.session.user.id
+            }
+        })
+            .then(()=>{
+                res.redirect('/')
+            })
+            .catch(err=>{
+                res.send(err)
             })
     }
 }

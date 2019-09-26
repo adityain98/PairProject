@@ -8,10 +8,14 @@ routes.use(express.json()) // for parsing application/json
 routes.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 // register
-routes.get('/', UserController.registerUser)
+// routes.get('/', UserController.registerUser)
 
 // post register
-routes.post('/', UserController.postRegisterUser)
+// routes.post('/', UserController.postRegisterUser)
+
+routes.get('/signup', UserController.registerUser)
+
+routes.post('/signup', UserController.postRegisterUser)
 
 routes.get('/login', UserController.login)
 

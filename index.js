@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 const Book = require('./models').Book
 const Category = require('./models').Category
@@ -33,6 +33,7 @@ app.get('/', (req, res)=>{
             return Category.findAll()
         })
         .then(categories=>{
+            
             // res.send(categories)
             // res.send(booksData)
             res.render('startbootstrap-shop-homepage-gh-pages', {books: booksData, categories, login: req.session.user})
