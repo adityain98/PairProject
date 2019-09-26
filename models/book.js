@@ -4,9 +4,8 @@ module.exports = (sequelize, DataTypes) => {
   const ClassModels = sequelize.models
 
   class Book extends Model{
-    shortDescription(data){
-      // const shortDescription = data.description.split(0,30) + '...'
-      // return shortDescription
+    shortDescription(){
+      return this.description.slice(0, 75)
     }
   }
 

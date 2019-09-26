@@ -26,15 +26,33 @@ app.get('/', (req, res)=>{
         include: Category
     })
         .then(books=>{
+            for(let i = 0; i<books.length; i++){
+                books[i].setDataValue('shortDescription', books[i].shortDescription())
+            }
             booksData = books
-            return Category.findAll({
-                include: Book
-            })
+            return Category.findAll()
         })
         .then(categories=>{
             // res.send(categories)
             // res.send(booksData)
             res.render('startbootstrap-shop-homepage-gh-pages', {books: booksData, categories, login: req.session.user})
+        })
+})
+
+app.get('/:categoryId', (req,res)=>{
+    let category = ''
+    Category.findByPk(req.params.categoryId,{
+        include: Book
+    })
+        .then(categoryData=>{
+            for(let i = 0; i<categoryData.Books.length; i++){
+                categoryData.Books[i].setDataValue('shortDescription', categoryData.Books[i].shortDescription())
+            }
+            category = categoryData
+            return Category.findAll()
+        })
+        .then(categories=>{
+            res.render('startbootstrap-shop-homepage-gh-pages', {books: category.Books, categories, login: req.session.user})
         })
 })
 

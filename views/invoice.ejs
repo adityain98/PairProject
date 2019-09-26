@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Invoice</title>
+    <link 
+    href="https://fonts.googleapis.com/css?family=Poppins&display=swap" 
+    rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7031e91545.js"></script>
+
     <style>
         *, *::before, *::after {
             -moz-box-sizing: border-box;
@@ -134,64 +139,23 @@
 <body>
         <main class="full-invoice">
                 <header>
-                    <i class="fas fa-arrow-left header-arrow"></i>
+                    <a href="/"><i class="fas fa-arrow-left header-arrow"></i></a>
                     <h1>Invoice</h1>
                 </header>
                 
                 <section>
-                        <div class="invoice-item">
-                            <div class="icon-circle circle-soundcloud">
-                                <i class="fab fa-mixcloud icon-soundcloud" aria-hidden="true"></i>
-                            </div>
-                            <div class="invoice-biz-date">
-                                <p>Book's Name</p>
-                            </div>
-                            <p class="price"><span class="light-text">-</span></p>
-                        </div>
-                    
+                    <% for(let i = 0; i<userBooks.Books.length; i++){ %>
                     <div class="invoice-item">
-                        <div class="icon-circle circle-soundcloud">
-                            <i class="fab fa-mixcloud icon-soundcloud" aria-hidden="true"></i>
-                        </div>
                         <div class="invoice-biz-date">
-                            <p>Book's Name</p>
+                            <p><%=userBooks.Books[i].name%></p>
                         </div>
-                        <p class="price"><span class="light-text">-</span></p>
+                        <p class="price"><span class="light-text"></span><a href="/book/cart/<%= userBooks.Books[i].id %>/delete"><i class="fas fa-trash"></i></a></span></p>
                     </div>
-                    
-                    <div class="invoice-item">
-                        <div class="icon-circle circle-soundcloud">
-                            <i class="fab fa-mixcloud icon-soundcloud" aria-hidden="true"></i>
-                        </div>
-                        <div class="invoice-biz-date">
-                            <p>Book's Name</p>
-                        </div>
-                        <p class="price"><span class="light-text">-</span></p>
-                    </div>
-
-                    <div class="invoice-item">
-                        <div class="icon-circle circle-soundcloud">
-                            <i class="fab fa-mixcloud icon-soundcloud" aria-hidden="true"></i>
-                        </div>
-                        <div class="invoice-biz-date">
-                            <p>Book's Name</p>
-                        </div>
-                        <p class="price"><span class="light-text">-</span></p>
-                    </div>
-
-                    <div class="invoice-item">
-                        <div class="icon-circle circle-soundcloud">
-                            <i class="fab fa-mixcloud icon-soundcloud" aria-hidden="true"></i>
-                        </div>
-                        <div class="invoice-biz-date">
-                            <p>Book's Name</p>
-                        </div>
-                        <p class="price"><span class="light-text">-</span></p>
-                    </div>
+                    <% }%>
                 </section>
                 <div id="button-sign-container">
                     <div id="button-sign-circle">
-                        <a href="#">Checkout</a>
+                        <a href="/book/checkout">Checkout</a>
                     </div>
                 </div>
             </main>

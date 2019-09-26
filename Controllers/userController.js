@@ -33,8 +33,6 @@ class UserController{
         .then(user => {
             // console.log('ini dari login');
             // res.send(user)
-            console.log(user.id);
-            
             if(bcrypt.compareSync(req.body.password, user.password)) {
                 req.session.user = {id: user.id}
                 res.redirect('/')

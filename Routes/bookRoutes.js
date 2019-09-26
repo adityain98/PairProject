@@ -22,8 +22,9 @@ routes.get('/:id/addBook', loginSession, BookController.addBook)
 
 routes.get('/cart', loginSession, BookController.cart)
 
-// hapus yang ada di cart
-// routes.post('/cart', BookController.postCart)
+routes.get('/checkout', BookController.checkout)
+
+routes.get('/cart/:idBook/delete', BookController.delete)
 
 
 module.exports = routes

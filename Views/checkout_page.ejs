@@ -22,10 +22,11 @@
         .wrapper {
             max-width: 60rem;
             margin: 0 auto;
-            display: flex;
+            display: inline-block;
             align-items: center;
             justify-content: center;
             margin-bottom: 3rem;
+            margin-left: 130px;
         }
         .box {
             width: 15rem;
@@ -99,28 +100,16 @@
 <body>
     <h1>Thank You for Your Order</h1>
     <p>We will notice you when your order is shipped</p>
+    <p>Your order list:</p>
+    <% for(let i = 0; i<userBooks.Books.length; i++){ %>
     <div class="wrapper">
         <div class="box">
             <div class="product">
-            <span class="name">Book's Name</span>
-            <img src="https://www.lamnia.com/images/sg-150-Shirts_and_T-Shirts.jpg" class="center">
-            <span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-            </div>
-        </div>
-        <div class="box">
-            <div class="product">
-                <span class="name">Book's Name</span>
-                <img src="https://www.lamnia.com/images/sg-150-Shirts_and_T-Shirts.jpg" class="center">
-                <span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-            </div>
-        </div>
-        <div class="box">
-            <div class="product">
-                <span class="name">Book's Name</span>
-                <img src="https://www.lamnia.com/images/sg-150-Shirts_and_T-Shirts.jpg" class="center">
-                <span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+            <span class="name"><%= userBooks.Books[i].name %></span>
+            <img src="<%= userBooks.Books[i].gambar %>" class="center">
             </div>
         </div>
     </div>
+    <% } %>
 </body>
 </html>

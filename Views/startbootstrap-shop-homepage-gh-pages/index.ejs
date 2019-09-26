@@ -31,7 +31,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container" >
-      <a class="navbar-brand" href="#">Online Library</a>
+      <a class="navbar-brand" href="/">Magnanimous</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -65,10 +65,10 @@
 
       <div class="col-lg-3">
 
-        <h1 class="my-4">Perpustakaan Online</h1>
+        <h1 class="my-4">Magnanimous</h1>
         <div class="list-group">
           <% for(let i = 0; i<categories.length; i++){ %>
-          <a href="#" class="list-group-item"><%= categories[i].category %></a>
+          <a href="/<%= categories[i].id %>" class="list-group-item"><%= categories[i].category %></a>
           <%}%>
         </div>
 
@@ -112,14 +112,14 @@
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="<%= books[i].gambar %>" alt="<%= books[i].name %>"> </a>
+              <a href="/book/<%= books[i].id %>/addbook"><img class="card-img-top" src="<%= books[i].gambar %>" alt="<%= books[i].name %>"> </a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#"><%= books[i].name %></a>
+                  <a href="/book/<%= books[i].id %>/addbook"><%= books[i].name %></a>
                 </h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                <p class="card-text"><%= books[i].dataValues.shortDescription %>...</p>
               </div>
-              <form method="POST">
+              <form action="/book/<%= books[i].id %>/addbook" >
                 <button type="submit" class="btn btn-primary" style="margin: 20px">Add Book</button>
               </form>
             </div>
@@ -160,7 +160,8 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+      <p class="m-0 text-center text-white">Copyright &copy; Hacktiv8</p>
+      <p class="m-0 text-center text-white">Infinite Fox: Indra Aditya, Andreas Holiwono</p>
     </div>
     <!-- /.container -->
   </footer>

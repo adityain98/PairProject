@@ -28,14 +28,15 @@ class BookController{
     // masukkan buku ke cart
     static addBook(req, res){
         User.findOne({
-            // where:{
-            //     login: true
-            // }
+            where:{
+                id: req.session.user.id
+            }
         })
             .then(data=>{
+                // res.send(data)
                 return UserBook.create({
-                    // UserId: data.id,
-                    // BookId: req.params.id    
+                    UserId: req.session.user.id,
+                    BookId: req.params.id    
                 })
             })
             .then(()=>{
@@ -48,23 +49,57 @@ class BookController{
 
     // menampilkan buku yang ada di cart
     static cart(req, res){
+        let books = ''
         User.findOne({
             where:{
                 id: req.session.user.id
             }
         })
-            .then(data=>{
-                return UserBook.findAll({
-                    where:{
-                        UserId: data.id
-                    }
+            .then(()=>{
+                return User.findByPk(req.session.user.id, {
+                    include: Book
                 })
             })
-            .then(data=>{
-                res.render('invoice')
+            .then(userBooks=>{
+                // res.send(userBooks)
+                res.render('invoice', {userBooks})
             })
+            // test
             .catch(err=>{
-                res.send(err)
+                res.send(err.message)
+            })
+    }
+
+    static checkout(req, res){
+        User.findOne({
+            where:{
+                id: req.session.user.id
+            }
+        })
+            .then(()=>{
+                return User.findByPk(req.session.user.id, {
+                    include: Book
+                })
+            })
+            .then(userBooks=>{
+                // res.send(userBooks)
+                res.render('checkout_page', {userBooks})
+            })
+            // test
+            .catch(err=>{
+                res.send(err.message)
+            })
+    }
+
+    static delete(req, res){
+        UserBook.destroy({
+            where:{
+                BookId: req.params.idBook,
+                UserId: req.session.user.id
+            }
+        })
+            .then(()=>{
+                res.redirect('/book/cart')
             })
     }
 }
