@@ -61,7 +61,7 @@ class BookController{
                 })
             })
             .then(data=>{
-                res.send(data)
+                res.render('invoice')
             })
             .catch(err=>{
                 res.send(err)
