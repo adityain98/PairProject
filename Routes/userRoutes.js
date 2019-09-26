@@ -13,5 +13,7 @@ routes.get('/', UserController.registerUser)
 // post register
 routes.post('/', UserController.postRegisterUser)
 
+routes.get('/login', UserController.login)
+routes.post('/login', UserController.postLogin)
 
 module.exports = routes
