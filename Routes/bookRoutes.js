@@ -24,5 +24,7 @@ routes.get('/cart', loginSession, BookController.cart)
 
 routes.get('/checkout', BookController.checkout)
 
+routes.get('/cart/:idBook/delete', BookController.delete)
+
 
 module.exports = routes

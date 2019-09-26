@@ -117,7 +117,7 @@
                 <h4 class="card-title">
                   <a href="/book/<%= books[i].id %>/addbook"><%= books[i].name %></a>
                 </h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                <p class="card-text"><%= books[i].dataValues.shortDescription %>...</p>
               </div>
               <form action="/book/<%= books[i].id %>/addbook" >
                 <button type="submit" class="btn btn-primary" style="margin: 20px">Add Book</button>

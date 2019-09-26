@@ -4,16 +4,16 @@ module.exports = (sequelize, DataTypes) => {
   const ClassModels = sequelize.models
 
   class Book extends Model{
-    shortDescription(data){
-      // const shortDescription = data.description.split(0,30) + '...'
-      // return shortDescription
+    shortDescription(){
+      return this.description.slice(0, 75)
     }
   }
 
   Book.init({
     name: DataTypes.STRING,
     stock: DataTypes.INTEGER,
-    gambar: DataTypes.STRING
+    gambar: DataTypes.STRING,
+    description: DataTypes.STRING
   }, {sequelize, modelName: "Book"})
   
   Book.associate = function(models) {

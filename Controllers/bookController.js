@@ -90,6 +90,18 @@ class BookController{
                 res.send(err.message)
             })
     }
+
+    static delete(req, res){
+        UserBook.destroy({
+            where:{
+                BookId: req.params.idBook,
+                UserId: req.session.user.id
+            }
+        })
+            .then(()=>{
+                res.redirect('/book/cart')
+            })
+    }
 }
 
 module.exports = BookController

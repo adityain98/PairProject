@@ -26,6 +26,9 @@ app.get('/', (req, res)=>{
         include: Category
     })
         .then(books=>{
+            for(let i = 0; i<books.length; i++){
+                books[i].setDataValue('shortDescription', books[i].shortDescription())
+            }
             booksData = books
             return Category.findAll()
         })
@@ -42,6 +45,9 @@ app.get('/:categoryId', (req,res)=>{
         include: Book
     })
         .then(categoryData=>{
+            for(let i = 0; i<categoryData.Books.length; i++){
+                categoryData.Books[i].setDataValue('shortDescription', categoryData.Books[i].shortDescription())
+            }
             category = categoryData
             return Category.findAll()
         })
