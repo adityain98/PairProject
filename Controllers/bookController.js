@@ -3,6 +3,29 @@ const UserBook = require('../models').UserBook
 const User = require('../models').User
 
 class BookController{
+    // tampilkan ke homepage
+    static findAll(req, res){
+        if(!req.query.id){
+            Book.findAll()
+                .then(books=>{
+                    res.render('home', {books})
+                })
+        }
+        // view book by category
+        else{
+            BookCategory.findAll({
+                where: {
+                    CategoryId: req.query.id
+                },
+                include: Book
+            })
+                .then(books=>{
+                    res.render('home', {books})
+                })
+        }
+    }
+
+    // masukkan buku ke cart
     static addBook(req, res){
         User.findOne({
             // where:{
@@ -23,6 +46,7 @@ class BookController{
             })
     }
 
+    // menampilkan buku yang ada di cart
     static cart(req, res){
         let name = ''
         User.findOne({

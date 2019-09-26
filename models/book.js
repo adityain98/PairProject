@@ -1,9 +1,13 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Model = sequelize.Sequelize.Model
+  const ClassModels = sequelize.models
 
   class Book extends Model{
-
+    get shortDescription(data){
+      // const shortDescription = data.description.split(0,30) + '...'
+      // return shortDescription
+    }
   }
 
   Book.init({

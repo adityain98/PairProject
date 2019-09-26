@@ -17,6 +17,6 @@ Sequelize:
     2. bisa menambahkan user pada Sequelize         | V sudah dengan validate
     3. login pada web & logout                      | setelah lecture 
     4. fitur add book to cart                       | V
-    5. fitur checkout                               | 
-    6. fitur view by category                       | 
+    5. fitur checkout                               | V
+    6. fitur view by category                       | V
     7. fitur view cart                              | V
