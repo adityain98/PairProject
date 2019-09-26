@@ -27,14 +27,26 @@ app.get('/', (req, res)=>{
     })
         .then(books=>{
             booksData = books
-            return Category.findAll({
-                include: Book
-            })
+            return Category.findAll()
         })
         .then(categories=>{
             // res.send(categories)
             // res.send(booksData)
             res.render('startbootstrap-shop-homepage-gh-pages', {books: booksData, categories, login: req.session.user})
+        })
+})
+
+app.get('/:categoryId', (req,res)=>{
+    let category = ''
+    Category.findByPk(req.params.categoryId,{
+        include: Book
+    })
+        .then(categoryData=>{
+            category = categoryData
+            return Category.findAll()
+        })
+        .then(categories=>{
+            res.render('startbootstrap-shop-homepage-gh-pages', {books: category.Books, categories, login: req.session.user})
         })
 })
 
